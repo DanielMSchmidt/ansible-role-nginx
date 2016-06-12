@@ -1,5 +1,7 @@
 ---
 # Variable setup.
+- name: Include OS-specific variables.
+ -  include_vars: "Debian.yml"
 
 - name: Define nginx_user.
   set_fact:
@@ -8,6 +10,7 @@
 
 # Setup/install tasks.
 - include: setup-Ubuntu.yml
+- include: setup-Debian.yml
 
 # Vhost configuration.
 - include: vhosts.yml
